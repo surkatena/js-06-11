@@ -1,17 +1,23 @@
 const goods = [
-    { title: 'Компьютер', price: 10000 },
-    { title: 'Мышь', price: 500 },
-    { title: 'Клавиатура', price: 1000 },
-    { title: 'Монитор', price: 7000 },
+    { title: 'Shirt', price: 150 },
+    { title: 'Socks', price: 50 },
+    { title: 'Jacket', price: 350 },
+    { title: 'Shoes', price: 250 },
 ];
 
-const getGoodsItem = (title, price) => {
-    return `<div class="goods-item"><h2>${title}</h2><p>${price}</p></div>`;
-}
-
-const renderGoodsList = (list) => {
-    const goodsList = list.map(listItem => getGoodsItem(listItem.title, listItem.price));
-    document.querySelector('.goods-list').innerHTML = goodsList;
-}
+const renderGoodsList = (list = [{ title: 'Item title', price: "Item price" }]) => {
+    document.querySelector('.product_container').innerHTML =  list.map(item => `<div class="product_item"><h3>${item.title}</h3><p>${item.price}</p></div>`).join("");
+};
 
 renderGoodsList(goods);
+
+// Ответ на п.1 практического задания.
+// Извините, я не стал делать данное задание, по причине:
+// Писание wrap'ов для товаров усложнит для вас проверку моего JS кода.
+// Думаю, после следующего урока, мне будут более понятны входные данные, например "меню" чего я должен "добавить стили",
+// после чего я смогу использовать тот метод, который мне более продподчителен: задать flex-basis = 33% для каждой обёртки товара.
+
+
+// Ответ на п.3 практического задания.
+// Метод map возвращает массив, который для перевода в строку пропускается через toString, который разделяет элементы массива запятыми.
+// Поэтому используем join с пустой строкой "" в качестве разделителя элементов массива. Также можно использовать метод reduce.
